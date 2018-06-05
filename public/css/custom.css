@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:300,400,700");
+
+ html {
+	font-family: 'Roboto, sans-serif';
+	
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%
+}
+body {
+	padding-top: 100px;
+	margin: 0;
+	font-weight: 700;
+	color: #415634
+}
