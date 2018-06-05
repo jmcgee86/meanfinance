@@ -25,6 +25,8 @@ function LoginController($http, $location, $window, AuthFactory, jwtHelper) {
           var token = $window.sessionStorage.token;
           var decodedToken = jwtHelper.decodeToken(token);
           vm.loggedInUser = decodedToken.username;
+          //only change to redirect successful login to dashboard
+          $location.path( "/dashboard" );
         }
       }).catch(function(error) {
         console.log(error);
