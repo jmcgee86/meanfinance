@@ -14,7 +14,7 @@
   
   <div>
    
-    <p ng-show = "displayFind" ng-submit="vm.find()">{{vm.symbol}} is currently priced at {{vm.stockprice | currency}}</p>
+    <p ng-show = "displayFind" ng-submit="vm.find()">{{vm.symbol | uppercase}} is currently priced at {{vm.stockprice | currency}}</p>
   </div>
 </form>
 
