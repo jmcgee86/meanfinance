@@ -13,8 +13,9 @@
   <button type="submit" class="btn btn-success" ng-click="displayFind=true">find</button>
   
   <div>
-   
+
     <p ng-show = "displayFind" ng-submit="vm.find()">{{vm.symbol | uppercase}} is currently priced at {{vm.stockprice | currency}}</p>
+
   </div>
 </form>
 
