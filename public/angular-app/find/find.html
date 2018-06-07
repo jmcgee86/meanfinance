@@ -19,3 +19,24 @@
   </div>
 </form>
 
+<div ng-if= "vm.isLoggedIn()">
+  <div ng-if= "vm.stockprice">
+    <h1>Buy {{vm.symbol | uppercase}}</h1>
+    <div ng-if="vm.message" class="alert alert-success" role="alert">
+      <p>{{ vm.message }}</p>
+    </div>
+    <div ng-if="vm.error" class="alert alert-danger" role="alert">
+      {{ vm.error }}
+    </div>
+    <form name="buy" ng-submit="vm.buy()">
+       <div class="form-group">
+        <label for="amount">Number of shares</label>
+        <input type="number" class="form-control" name = "amount" id="amount" placeholder="Number of shares" ng-model="vm.amount">
+      </div>
+      <div>
+        <p ng-hide = "buy.amount.$pristine" ng-if= "buy.amount.$dirty">{{vm.amount}} shares of {{vm.symbol | uppercase }} will cost {{vm.stockprice * vm.amount | currency}}</p>
+      </div>
+      <button type="submit" class="btn btn-success">Buy</button>
+    </form>
+  </div>  
+</div>
