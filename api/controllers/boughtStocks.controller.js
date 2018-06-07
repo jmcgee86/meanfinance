@@ -47,6 +47,7 @@ module.exports.bStocksGetAll = function(req, res) {
 
 module.exports.bStocksBuy = function(req, res) {
   var symbol = req.body.symbol;
+  var price = req.body.price;
   
   console.log(req.body);
   
@@ -64,8 +65,9 @@ module.exports.bStocksBuy = function(req, res) {
           .json({"message" : "Stock not valid"});
       } else {
         //stock is valid. get the stocks price.)
-        var price = stockPrice.returnPrice(symbol);
         var cost = parseInt(req.body.amount) * price;
+        console.log("price: " + price);
+        console.log("cost: " + cost);
         
         //find the user
         var username = req.params.username;
@@ -86,6 +88,7 @@ module.exports.bStocksBuy = function(req, res) {
                   .json(json);
               } else {
                 // enough funds Buy the stock
+                user.balance -= cost;
                 var stocks = user.stocks
                 stocks.push({
                   _id : symbol,
