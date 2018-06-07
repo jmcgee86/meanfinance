@@ -7,8 +7,12 @@
 </div>
 <form ng-hide="vm.message" name="find" ng-submit="vm.find()">
   <div class="form-group">
+    <div ng-if="showRequiredError" class="alert alert-danger" role="alert">
+</div>
     <label for="symbol">Symbol</label>
-    <input type="text" class="form-control" id="symbol" placeholder="Symbol" ng-model="vm.symbol" ng-click="displayFind" autocapitalize="none" style="text-transform:uppercase">
+    <input type="text" class="form-control" id="symbol" placeholder="Symbol" ng-model="vm.symbol" ng-minlength="1" required ng-click="displayFind" autocapitalize="none" style="text-transform:uppercase">
+    
+    
   </div>
   <button type="submit" class="btn btn-success" ng-click="displayFind=true">find</button>
   
