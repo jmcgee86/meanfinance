@@ -36,7 +36,10 @@
       <div>
         <p ng-hide = "buy.amount.$pristine" ng-if= "buy.amount.$dirty">{{vm.amount}} shares of {{vm.symbol | uppercase }} will cost {{vm.stockprice * vm.amount | currency}}</p>
       </div>
-      <button type="submit" class="btn btn-success">Buy</button>
+      <button type="submit" class="btn btn-success" ng-click="displayBuy=true">Buy</button>
+      
+      <p ng-show = "displayBuy" ng-submit="vm.buy()">{{vm.amount}} shares of {{vm.symbol | uppercase}} have been purchased for {{vm.stockprice * vm.amount | currency}}</p>
+      
     </form>
   </div>  
 </div>
