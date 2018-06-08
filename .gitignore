@@ -60,3 +60,4 @@ typings/
 database/
 
 keys.js
+public/news/keys.js
