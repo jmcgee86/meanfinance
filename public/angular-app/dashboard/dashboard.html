@@ -8,6 +8,7 @@
   </thead>
   <tbody>
     <tr ng-repeat="stock in vm.stocks" ng-init="counter = 0">
+      <td> {{ stock.createdOn | date:'medium' }}
       <td>{{stock._id}}</td>
       <td>{{stock.amount}}</td>
       <!--<td>{{vm.prices[counter++] | currency}}</td>-->

@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 
 var boughtStockSchema = new mongoose.Schema({
+  createdOn: {
+    type: Date,
+    "default": Date.now
+  },
   _id : String,
   amount : Number
 });
