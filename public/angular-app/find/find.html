@@ -2,7 +2,7 @@
 <div ng-if="vm.message" class="alert alert-success" role="alert">
   <p>{{ vm.message }}</p>
 </div>
-<div ng-if="vm.error" class="alert alert-danger" role="alert">
+<div ng-if="vm.error"class="alert alert-danger" role="alert">
  <!--// {{ vm.error }}-->
  Stock Symbol Invalid
 </div>
@@ -13,7 +13,7 @@
   </div>
   <button type="submit" class="btn btn-success" ng-click="displayFind=true">find</button>
   
-  <div>
+  <!--<div>-->
   <div ng-show="displayFind">    
     <p ng-hide = "vm.error" ng-submit="vm.find()">{{vm.symbol | uppercase}} is currently priced at {{vm.stockprice | currency}}</p>
   </div>
@@ -21,7 +21,7 @@
     <!--<div  class="alert alert-danger" ng-show= "vm.symbol != true && find.symbol.$dirty">-->
     <!--    <strong>Stock symbol invalid</strong>  -->
     <!--</div> -->
-  </div>
+  <!--</div>-->
 </form>
 
 <div ng-if= "vm.isLoggedIn()">
