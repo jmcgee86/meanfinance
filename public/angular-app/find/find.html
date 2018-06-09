@@ -25,13 +25,12 @@
 </form>
 
 <div ng-if= "vm.isLoggedIn()">
-  <div ng-if= "vm.stockprice">
+  <div ng-if= "vm.stockprice" ng-hide = vm.error>
     <h1>Buy {{vm.symbol | uppercase}}</h1>
     <div ng-if="vm.message" class="alert alert-success" role="alert">
       <p>{{ vm.message }}</p>
     </div>
     <div ng-if="vm.error" class="alert alert-danger" role="alert">
-      {{ vm.error }}
     </div>
     <form name="buy" ng-submit="vm.buy()">
        <div class="form-group">
