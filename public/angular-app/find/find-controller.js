@@ -21,6 +21,7 @@ function FindController($http, $window, AuthFactory, jwtHelper, $location) {
       console.log("found stock")
       var stockprice = response.data.price
       vm.stockprice = stockprice;
+      vm.error = null;
     }).catch(function(error) {
       if (error) {
         vm.error = error;

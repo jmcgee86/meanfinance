@@ -2,31 +2,35 @@
 <div ng-if="vm.message" class="alert alert-success" role="alert">
   <p>{{ vm.message }}</p>
 </div>
-<div ng-if="vm.error" class="alert alert-danger" role="alert">
-  {{ vm.error }}
+<div ng-if="vm.error"class="alert alert-danger" role="alert">
+ <!--// {{ vm.error }}-->
+ Stock Symbol Invalid
 </div>
 <form ng-hide="vm.message" name="find" ng-submit="vm.find()">
   <div class="form-group">
     <label for="symbol">Symbol</label>
-    <input type="text" class="form-control" id="symbol" placeholder="Symbol" ng-model="vm.symbol" required ng-click="displayFind" autocapitalize="none" style="text-transform:uppercase">
+    <input type="text" class="form-control" id="symbol" name="symbol" placeholder="Symbol" ng-model="vm.symbol" required ng-click="displayFind" autocapitalize="none" style="text-transform:uppercase">
   </div>
   <button type="submit" class="btn btn-success" ng-click="displayFind=true">find</button>
   
-  <div>
-
-    <p ng-show = "displayFind" ng-submit="vm.find()">{{vm.symbol | uppercase}} is currently priced at {{vm.stockprice | currency}}</p>
-
+  <!--<div>-->
+  <div ng-show="displayFind">    
+    <p ng-hide = "vm.error" ng-submit="vm.find()">{{vm.symbol | uppercase}} is currently priced at {{vm.stockprice | currency}}</p>
   </div>
+    <!--<p ng-show = "displayFind" ng-submit="vm.find()">{{vm.symbol | uppercase}} is currently priced at {{vm.stockprice | currency}}</p>-->
+    <!--<div  class="alert alert-danger" ng-show= "vm.symbol != true && find.symbol.$dirty">-->
+    <!--    <strong>Stock symbol invalid</strong>  -->
+    <!--</div> -->
+  <!--</div>-->
 </form>
 
 <div ng-if= "vm.isLoggedIn()">
-  <div ng-if= "vm.stockprice">
+  <div ng-if= "vm.stockprice" ng-hide = vm.error>
     <h1>Buy {{vm.symbol | uppercase}}</h1>
     <div ng-if="vm.message" class="alert alert-success" role="alert">
       <p>{{ vm.message }}</p>
     </div>
     <div ng-if="vm.error" class="alert alert-danger" role="alert">
-      {{ vm.error }}
     </div>
     <form name="buy" ng-submit="vm.buy()">
        <div class="form-group">
