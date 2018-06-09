@@ -31,7 +31,7 @@ module.exports.login = function(req, res) {
   User
     .findOne({username: username})
     .exec(function(err, user) {
-      if (err) {
+      if (!user || !password) {
         res
           .status(400)
           .json(err);
